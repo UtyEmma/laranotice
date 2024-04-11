@@ -1,0 +1,18 @@
+<?php
+
+namespace {{namespace}};
+
+use Utyemma\LaraNotice\Notify;
+
+class {{class}} extends Notify {
+
+    protected $source = 'database';
+
+    /**
+    * Get the mail representation of the notification.
+    */
+    function toArray() : array {
+        return [];
+    }
+
+}

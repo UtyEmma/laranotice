@@ -1,0 +1,30 @@
+{
+    "name": "utyemma/laranotice",
+    "license": "MIT",
+    "keywords": ["LaraNotice", "Notifications", "Laravel Notifications"],
+    "autoload": {
+        "psr-4": {
+            "Utyemma\\LaraNotice\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Utibe-Abasi Emmanuel",
+            "email": "utyemma@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "mustache/mustache": "^2.14"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Utyemma\\LaraNotice\\LaraNoticeServiceProvider"
+            ]
+        }
+    }
+}
