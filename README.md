@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/utyemma/laranotice.svg?style=flat-square)](https://packagist.org/packages/utyemma/laranotice)
 <!--delete-->
 ---
-Create dynamic notifications and email messages using Laravel’s inbuilt notification system.
+Introducing LaraNotice, your go-to package for creating dynamic notifications and email messages effortlessly. LaraNotice allows you to craft and send your notifications with ease while taking advantage of Laravel's powerful built-in notification system.
 
 ## Setup and Installation
 Install LaraNotice in your project
