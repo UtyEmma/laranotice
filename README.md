@@ -1,8 +1,7 @@
-# Laravel laranotice
+# Laranotice
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/utyemma/laranotice.svg?style=flat-square)](https://packagist.org/packages/utyemma/laranotice)
 [![Total Downloads](https://img.shields.io/packagist/dt/utyemma/laranotice.svg?style=flat-square)](https://packagist.org/packages/utyemma/laranotice)
-<!--delete-->
 ---
 Introducing LaraNotice, your go-to package for creating dynamic notifications and email messages effortlessly. LaraNotice allows you to craft and send your notifications with ease while taking advantage of Laravel's powerful built-in notification system.
 

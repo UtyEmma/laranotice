@@ -2,9 +2,9 @@
 
 namespace {{namespace}};
 
-use Utyemma\LaraNotice\Notify;
+use Utyemma\LaraNotice\Mailable;
 
-class {{class}} extends Notify {
+class {{class}} extends Mailable {
 
     protected $source = 'inline';
     public $subject = '{{subject}}';
@@ -23,7 +23,7 @@ class {{class}} extends Notify {
     *
     * @return array<string, mixed>
     */
-    function toArray() : array {
+    function toDatabase() : array {
         return [];
     }
 
