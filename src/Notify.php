@@ -15,39 +15,18 @@ use Utyemma\LaraNotice\Notifications\Notification;
 class Notify extends MailMessage {
 
     public $content = [];
-    private Mailable | null $mailable = null;
+    protected Mailable | null $mailable = null;
     protected $source;
 
     function setBody() { }
 
+    function toDatabase() {
+        return [];
+     }
+
     function __construct($subject = '', $data = []) {
         $this->content = $data;
-
-        $class = get_class($this);
-        $model = Mailable::class;
-
         $this->subject($subject);
-
-        if($this->source == 'database') {
-            if(!$this->mailable = Mailable::whereMailable(get_class($this))->first()) {
-                throw new Exception("Database mailable [{$class}] does not exist on $model model");
-            }
-
-            return $this->parse($this->mailable);
-        }
-
-        if($this->source == 'inline') {
-            $content = $this->setBody();
-            $contentType = gettype($content);
-            if(!$contentType != 'string') {
-                throw new Exception("Method [$class::setBody()] must return a [{string}]. $contentType returned");
-            }
-
-            return $this->parse([
-                'subject' => $this->subject,
-                'body' => $content,
-            ]);
-        }
     }
 
     function send($receivers, $channels = null){
@@ -73,7 +52,7 @@ class Notify extends MailMessage {
         return Mail::to($email)->send($this->mailable());
     }
 
-    private function parse($data){
+    protected function parse($data){
         $this->subject($data['subject']);
         $this->greeting(' ');
         $this->salutation(' ');
@@ -83,7 +62,7 @@ class Notify extends MailMessage {
         return $this;
     }
 
-    private function resolver($content, $data){
+    protected function resolver($content, $data){
         if($resolver = config('laranotice.resolver')) return new $resolver($content, $data);
         return $this->setResolver($content, $data);
     }

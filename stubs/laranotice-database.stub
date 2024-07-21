@@ -2,16 +2,16 @@
 
 namespace {{namespace}};
 
-use Utyemma\LaraNotice\Notify;
+use Utyemma\LaraNotice\Mailable;
 
-class {{class}} extends Notify {
+class {{class}} extends Mailable {
 
     protected $source = 'database';
 
     /**
     * Get the mail representation of the notification.
     */
-    function toArray() : array {
+    function toDatabase() : array {
         return [];
     }
 
