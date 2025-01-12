@@ -127,6 +127,29 @@ Here is an example using handlebars templating engine. Learn more about using Ha
 
 > When this class is provided it will be used in resolving the templates. You must ensure your your mail messages are formatted based on the templating engine you are using as your resolver. 
 
+## Deleting Mailables
+LaraNotice provides a convenient command to clean up mailable classes and their associated database records.
+
+```bash
+# Delete a specific mailable class
+php artisan mailable:delete --class=ExampleMailable
+
+# Delete all mailable classes
+php artisan mailable:delete --all
+
+# Delete with preservation options
+php artisan mailable:delete --class=ExampleMailable --preserve=database  # Only deletes the file
+php artisan mailable:delete --class=ExampleMailable --preserve=files     # Only deletes from database
+```
+
+### Command Options
+- `--all`: Delete all mailable classes and their database records
+- `--class=`: Specify a single mailable class to delete (e.g., ExampleMailable)
+- `--preserve=`: Optional. Specify what to keep:
+  - `database`: Preserves database records but deletes files
+  - `files`: Preserves files but deletes database records
+
+The command will ask for confirmation before performing any deletions to prevent accidental data loss.
 
 ## Testing
 ```bash

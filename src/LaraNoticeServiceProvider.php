@@ -4,20 +4,23 @@ namespace Utyemma\LaraNotice;
 
 use Illuminate\Support\ServiceProvider;
 use Utyemma\LaraNotice\Commands\CreateMailable;
+use Utyemma\LaraNotice\Commands\DeleteMailable;
 
-class LaraNoticeServiceProvider extends ServiceProvider {
+class LaraNoticeServiceProvider extends ServiceProvider
+{
 
-    function boot(){
+    function boot()
+    {
         $this->registerCommands();
 
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations/2024_01_18_133341_create_mailables_table.php');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations/2024_01_18_133341_create_mailables_table.php');
 
         $this->publishes([
-            __DIR__.'/../config/laranotice.php' => config_path('laranotice.php'),
+            __DIR__ . '/../config/laranotice.php' => config_path('laranotice.php'),
         ]);
 
         $this->publishes([
-            __DIR__.'/../database/migrations/' => database_path('migrations'),
+            __DIR__ . '/../database/migrations/' => database_path('migrations'),
         ], 'laranotice-migrations');
 
         // $this->app->bind('notifire', function($app) {
@@ -25,18 +28,21 @@ class LaraNoticeServiceProvider extends ServiceProvider {
         // });
     }
 
-    function register() {
+    function register()
+    {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/laranotice.php', 'laranotice'
+            __DIR__ . '/../config/laranotice.php',
+            'laranotice'
         );
     }
 
-    function registerCommands(){
-        if($this->app->runningInConsole()){
+    function registerCommands()
+    {
+        if ($this->app->runningInConsole()) {
             $this->commands([
-                CreateMailable::class
+                CreateMailable::class,
+                DeleteMailable::class
             ]);
         }
     }
-
 }
